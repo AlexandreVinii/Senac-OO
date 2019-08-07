@@ -1,0 +1,5 @@
+*.vscode
+*.pyc
+*.DS_Store
+ADO Aula-05-08/__pycache__
+
