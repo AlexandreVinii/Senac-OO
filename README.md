@@ -1,2 +1,2 @@
-# Senac Aulas Programação
-# Orientado a Objeto
+# Senac Aula Bruno Sanchez
+# Programação Orientada a Objeto
