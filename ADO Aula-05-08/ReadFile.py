@@ -43,25 +43,34 @@ class ReadFile:
         self.lista_reg = lista_reg
         self.lista_pib = lista_pib
         read = ReadFile()
+        ls = []
+        teste = 0
         regioes = self.lista_reg
-        for i in range(len(self.lista_pib)):
-            for j in range(len(self.lista_reg)):
-                if self.lista_pib[i][0] == self.lista_reg[j][0]:
-                    aux = self.lista_pib[i][1]
-                    regioes[j].append(aux)
-        norte = read.sum(regioes[1:8])
-        nordeste = read.sum(regioes[10:19])
-        sudeste = read.sum(regioes[21:25])
-        sul = read.sum(regioes[27:30])
-        centro_oeste = read.sum(regioes[32:])
-        dicionario = {
-            'Norte' : norte,
-            'Nordeste' : nordeste,
-            'Sudeste' : sudeste,
-            'Sul' : sul,
-            'Centro-Oeste': centro_oeste
-        }
-        return dicionario
+        for i in range(len(self.lista_reg)):
+            if self.lista_reg[i][0] == 'Norte':
+                x = 0
+                regioes[i].append(x)
+            if self.lista_reg[i][0] == 'Nordeste':
+                x = 0
+                regioes[i].append(x)
+            if self.lista_reg[i][0] == 'Sul':
+                x = 0
+                regioes[i].append(x)
+            if self.lista_reg[i][0] == 'Sudeste':
+                x = 0
+                regioes[i].append(x)
+            if self.lista_reg[i][0] == 'Centro-Oeste':
+                x = 0
+                regioes[i].append(x)
+            for j in range(len(self.lista_pib)):
+                if self.lista_pib[j][0] == self.lista_reg[i][0]:
+                    aux = self.lista_pib[j][1]
+                    regioes[i].append(float(aux))
+            
+            print('S > ',regioes[i])
+            if regioes[i][0] != '':
+                print('FOI ')
+        return ls
         
     def to_dict(self, lista):
         self.lista = lista
