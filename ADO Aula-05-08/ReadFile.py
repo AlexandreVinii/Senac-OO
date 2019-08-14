@@ -69,14 +69,13 @@ class ReadFile:
 
             # print('Regioes Som ', regioes[i])
 
-            if regioes[i][0] != '':
-                print('values',regioes[i][1])
-                aux = regioes[i][1]
-                teste += aux
+        return regioes
+    def somatoria(self, lista):
+        self.lista = lista
+        for n in self.lista:
+            if n != ['']:
+                print(n[1])
 
-                pos.append(teste)
-
-        return pos
     def to_dict(self, lista):
         self.lista = lista
         dic = {k: v for k, v in self.lista}
