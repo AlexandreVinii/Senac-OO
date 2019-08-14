@@ -11,7 +11,7 @@ class ReadFile:
         for i in range(len(aux)):
             lista.append(aux[i].strip().split(';'))
         return lista
-    
+
     def pib_total(self, lista):
         self.lista = lista
         aux = 0
@@ -19,7 +19,7 @@ class ReadFile:
         for i in range(len(pib)):
             aux += float(pib[i][1])
         return round(aux, 2)
-                
+
     def sum(self, lista):
         self.lista = lista
         aux = 0
@@ -35,7 +35,7 @@ class ReadFile:
         for i in range(len(self.lista)):
             aux = (float(lista[i][1])/total)*100
             self.lista[i][1] = f'{aux:.2f}% - PIB'
-            
+
         pib = read.to_dict(self.lista)
         return pib
 
@@ -43,7 +43,7 @@ class ReadFile:
         self.lista_reg = lista_reg
         self.lista_pib = lista_pib
         read = ReadFile()
-        ls = []
+        pos = []
         teste = 0
         regioes = self.lista_reg
         for i in range(len(self.lista_reg)):
@@ -66,15 +66,18 @@ class ReadFile:
                 if self.lista_pib[j][0] == self.lista_reg[i][0]:
                     aux = self.lista_pib[j][1]
                     regioes[i].append(float(aux))
-            
-            print('S > ',regioes[i])
+
+            # print('Regioes Som ', regioes[i])
+
             if regioes[i][0] != '':
-                print('FOI ')
-        return ls
-        
+                print('values',regioes[i][1])
+                aux = regioes[i][1]
+                teste += aux
+
+                pos.append(teste)
+
+        return pos
     def to_dict(self, lista):
         self.lista = lista
-        dic = {k:v for k,v in self.lista}
+        dic = {k: v for k, v in self.lista}
         return dic
-    
-    
