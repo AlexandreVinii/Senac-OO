@@ -11,7 +11,7 @@ class ReadFile:
         for i in range(len(aux)):
             lista.append(aux[i].strip().split(';'))
         return lista
-    
+
     def pib_total(self, lista):
         self.lista = lista
         aux = 0
@@ -19,7 +19,7 @@ class ReadFile:
         for i in range(len(pib)):
             aux += float(pib[i][1])
         return round(aux, 2)
-                
+
     def sum(self, lista):
         self.lista = lista
         aux = 0
@@ -35,7 +35,7 @@ class ReadFile:
         for i in range(len(self.lista)):
             aux = (float(lista[i][1])/total)*100
             self.lista[i][1] = f'{aux:.2f}% - PIB'
-            
+
         pib = read.to_dict(self.lista)
         return pib
 
@@ -55,17 +55,18 @@ class ReadFile:
         sul = read.sum(regioes[27:30])
         centro_oeste = read.sum(regioes[32:])
         dicionario = {
-            'Norte' : norte,
-            'Nordeste' : nordeste,
-            'Sudeste' : sudeste,
-            'Sul' : sul,
+            'Norte': norte,
+            'Nordeste': nordeste,
+            'Sudeste': sudeste,
+            'Sul': sul,
             'Centro-Oeste': centro_oeste
         }
         return dicionario
-        
+    """
+                    
+    dala 
+    """
     def to_dict(self, lista):
         self.lista = lista
-        dic = {k:v for k,v in self.lista}
+        dic = {k: v for k, v in self.lista}
         return dic
-    
-    
