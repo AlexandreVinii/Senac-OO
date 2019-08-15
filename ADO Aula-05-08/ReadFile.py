@@ -62,6 +62,9 @@ class ReadFile:
             if self.lista_reg[i][0] == 'Centro-Oeste':
                 x = 0
                 regioes[i].append(x)
+            if self.lista_reg[i][0] == '' :
+                x = None
+                regioes[i].append(x)
             for j in range(len(self.lista_pib)):
                 if self.lista_pib[j][0] == self.lista_reg[i][0]:
                     aux = self.lista_pib[j][1]
@@ -71,10 +74,21 @@ class ReadFile:
 
         return regioes
     def somatoria(self, lista):
+        pega = []
+        vai = []
+        aux = 0
         self.lista = lista
-        for n in self.lista:
-            if n != ['']:
-                print(n[1])
+        for i in range(len(self.lista)):
+            if self.lista[i][1] == None or self.lista[i][1] != 0:
+                vai.append(self.lista[i][1])
+        # print('ss ',vai)
+            if vai != None:
+                aux = sum([j for j in vai if isinstance(j, int) or isinstance(j, float)])
+            print(aux)
+
+        
+
+               
 
     def to_dict(self, lista):
         self.lista = lista
