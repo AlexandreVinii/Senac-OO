@@ -1,0 +1,8 @@
+instância é como uma cópia de determinada classe alocada na memoria, você ocupa um espaço na memoria.
+
+Objeto é a instância de uma classe.
+
+A UML - Linguagem de Modelagem Unificada é uma linguagem-padrão para a elaboração da estrutura de projetos de software
+
+Atributo é privado, e método são publicos(obs: nem sempre todos os métodos são xcdd )
+dase 
