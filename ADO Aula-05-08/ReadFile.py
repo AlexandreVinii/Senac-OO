@@ -77,17 +77,32 @@ class ReadFile:
         pega = []
         vai = []
         aux = 0
+        test = []
+        a = []
         self.lista = lista
         for i in range(len(self.lista)):
             if self.lista[i][1] == None or self.lista[i][1] != 0:
                 vai.append(self.lista[i][1])
         # print('ss ',vai)
-        for k in vai :
-           
-            pega.append(k)
-            aux = sum([j for j in pega if isinstance(j, int) or isinstance(j, float)])
-            print(pega)
+        for k in range(len(vai)):
+            print(k)
+            if vai[k] == None:
+                pega.append(k)
+        for n in pega:
+            aux = sum([j for j in vai[:n] if isinstance(j, int) or isinstance(j, float)])
+            test.append(aux)
+                
+        for s in range(len(test)):
+            print('num ',s)
+            if s == 0:
+                a.append(test[s])
+            elif s == len(test) - 1:
+                a.append(test[s] - test[s-1])
+            else:
+                a.append(test[s] - test[s+1])
 
+
+        return a
         
 
                
