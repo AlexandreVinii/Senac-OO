@@ -13,8 +13,9 @@ regioes_txt = read.list_file('regioes.txt')
 
 #Método que calcula o PIB TOTAL por Regioes
 soma_regioes = read.sum_regioes(regioes_txt,pib_txt)
+teste = read.somatoria(soma_regioes)
 print('Somatória do PIB por Regiões')
-pp.pprint(soma_regioes)
+pp.pprint(teste)
 print('------------------------')
 #--------- # --------- # ---------- # ------------
 
