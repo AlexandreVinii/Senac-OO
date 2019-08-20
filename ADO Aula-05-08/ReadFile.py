@@ -20,14 +20,6 @@ class ReadFile:
             aux += float(pib[i][1])
         return round(aux, 2)
 
-    def sum(self, lista):
-        self.lista = lista
-        aux = 0
-        pib = lista
-        for i in range(len(pib)):
-            aux += float(pib[i][1])
-        return round(aux, 2)
-
     def pib_states(self, lista):
         self.lista = lista
         read = ReadFile()
@@ -74,38 +66,34 @@ class ReadFile:
 
         return regioes
     def somatoria(self, lista):
-        pega = []
+        reg = ['Norte', 'Nordeste', 'Sudeste', 'Sul', 'Centro-Oeste']
+        pos = []
         vai = []
         aux = 0
-        test = []
-        a = []
+        sum_reg = []
+        control = 0
         self.lista = lista
         for i in range(len(self.lista)):
             if self.lista[i][1] == None or self.lista[i][1] != 0:
                 vai.append(self.lista[i][1])
-        # print('ss ',vai)
         for k in range(len(vai)):
-            print(k)
             if vai[k] == None:
-                pega.append(k)
-        for n in pega:
-            aux = sum([j for j in vai[:n] if isinstance(j, int) or isinstance(j, float)])
-            test.append(aux)
-                
-        for s in range(len(test)):
-            print('num ',s)
-            if s == 0:
-                a.append(test[s])
-            elif s == len(test) - 1:
-                a.append(test[s] - test[s-1])
+                pos.append(k)
+        for n in pos:
+            if n >= pos[-1]:
+                aux = sum([j for j in vai[n+1:] if isinstance(j, int) or isinstance(j, float)])
+                sum_reg.append(aux)
+            if n == pos[0]:
+                aux = sum([j for j in vai[:n] if isinstance(j, int) or isinstance(j, float)])
+                sum_reg.append(aux)
+                aux = sum([j for j in vai[n:pos[control+1]] if isinstance(j, int) or isinstance(j, float)])
+                sum_reg.append(aux)
             else:
-                a.append(test[s] - test[s+1])
-
-
-        return a
-        
-
-               
+                aux = sum([j for j in vai[n:pos[control-(len(pos)-1)]] if isinstance(j, int) or isinstance(j, float)])
+                sum_reg.append(aux)
+            control += 1
+        dicio = dict(zip(reg, sum_reg[:-1]))
+        return dicio
 
     def to_dict(self, lista):
         self.lista = lista

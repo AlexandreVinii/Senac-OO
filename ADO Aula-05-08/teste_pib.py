@@ -19,10 +19,10 @@ pp.pprint(teste)
 print('------------------------')
 #--------- # --------- # ---------- # ------------
 
-#Método que calcula porcentagem do PIB por estado
-# print('Porcentagem do PIB por Estados')
-# pib_states = read.pib_states(pib_txt)
-# pp.pprint(pib_states)
+# Método que calcula porcentagem do PIB por estado
+print('Porcentagem do PIB por Estados')
+pib_states = read.pib_states(pib_txt)
+pp.pprint(pib_states)
 #--------- # --------- # ---------- # ------------
 
 
